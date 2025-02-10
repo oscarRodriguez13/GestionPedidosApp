@@ -1,74 +1,77 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    android:padding="32dp"
-    android:textColor="@android:color/black">
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp">
 
     <TextView
         android:id="@+id/tv_accountType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="16dp"
         android:text="Tipo de Cuenta"
         android:textColor="@color/black"
         android:textSize="25sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="40dp"/>
 
-    <ImageView
-        android:id="@+id/app_logo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/tv_accountType"
-        android:layout_marginBottom="7dp"
-        android:scaleType="centerCrop"/>
-
-    <TextView
-        android:id="@+id/tv_accountTypeUser"
+    <!-- Opción Usuario -->
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_accountType"
-        android:layout_marginTop="40dp"
-        android:text="Pedidor"
-        android:textColor="@color/black"
-        android:textStyle="italic"
-        android:textSize="20sp"
-        android:layout_marginStart="90dp" />
+        android:orientation="vertical"
+        android:gravity="center">
 
-    <ImageButton
-        android:id="@+id/userButton"
+        <ImageView
+            android:id="@+id/user1"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            app:srcCompat="@android:drawable/ic_menu_myplaces"
+            android:scaleType="fitCenter"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usuario 1"
+            android:textColor="@color/black"
+            android:textStyle="italic"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+
+    <View android:layout_height="50dp" android:layout_width="match_parent"/>
+
+    <!-- Opción Entregador -->
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/tv_accountType"
-        app:srcCompat="@android:drawable/ic_menu_myplaces"
-        android:layout_toEndOf="@id/tv_accountTypeUser"
-        android:layout_marginStart="60dp"/>
+        android:orientation="vertical"
+        android:gravity="center">
 
-    <TextView
-        android:id="@+id/tv_accountTypeDogWalker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_accountTypeUser"
-        android:layout_marginTop="40dp"
-        android:text="Entregador"
-        android:textColor="@color/black"
-        android:textStyle="italic"
-        android:textSize="20sp"
-        android:layout_marginStart="90dp" />
+        <ImageView
+            android:id="@+id/user2"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            app:srcCompat="@android:drawable/ic_menu_myplaces"
+            android:scaleType="fitCenter"
+            android:clickable="true"
+            android:focusable="true"/>
 
-    <ImageButton
-        android:id="@+id/dogWalkerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/tv_accountTypeUser"
-        app:srcCompat="@android:drawable/ic_menu_myplaces"
-        android:layout_toEndOf="@id/tv_accountTypeUser"
-        android:layout_marginStart="60dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usuario 2"
+            android:textColor="@color/black"
+            android:textStyle="italic"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
 
-
-
-</RelativeLayout>
+</LinearLayout>
