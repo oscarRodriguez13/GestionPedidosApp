@@ -25,8 +25,12 @@ class HomeAdminActivity : AppCompatActivity() {
 
         // Inicializar el adaptador con la lista y un manejador de clics
         orderAdapter = OrderAdapter(listaSolicitudes) { solicitud ->
-            // Acción cuando se hace clic en un elemento
-            // Aquí podrías abrir otra actividad o mostrar detalles
+            val intent = Intent(this, OrderDetailsActivity::class.java).apply {
+                putExtra("fecha", solicitud.fecha)
+                putExtra("hora", solicitud.hora)
+                putExtra("estado", solicitud.estado)
+            }
+            startActivity(intent)
         }
         recyclerView.adapter = orderAdapter
 

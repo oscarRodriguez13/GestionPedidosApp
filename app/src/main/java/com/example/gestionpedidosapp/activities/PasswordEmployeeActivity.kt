@@ -22,7 +22,7 @@ class PasswordEmployeeActivity : AppCompatActivity() {
             val inputPassword = etPassword.text.toString()
             if (inputPassword == defaultPassword) {
                 Toast.makeText(this, "Acceso concedido", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, HomeAdminActivity::class.java)
+                val intent = Intent(this, HomeEmployeeActivity::class.java)
                 startActivity(intent)
             } else {
                 Toast.makeText(this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show()
