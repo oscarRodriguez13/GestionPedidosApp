@@ -10,8 +10,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GestionPedidosApp"
+        android:theme="@style/AppTheme"
         tools:targetApi="31">
+        <activity
+            android:name=".activities.AddOrderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AddProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ProductsActivity"
+            android:exported="false" />
         <activity
             android:name=".activities.PasswordEmployeeActivity"
             android:exported="false" />

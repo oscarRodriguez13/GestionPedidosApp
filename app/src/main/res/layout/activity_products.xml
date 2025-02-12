@@ -26,12 +26,11 @@
                 android:src="@drawable/ic_launcher_background" />
 
             <Button
-                android:id="@+id/buttonHistorial"
+                android:id="@+id/buttonPedidos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Historial"
-                android:textColor="@color/black"
-                android:textStyle="bold"
+                android:text="Pedidos"
+                android:textColor="#4C4B4B"
                 android:layout_marginEnd="25dp"
                 android:background="@android:color/transparent"/>
 
@@ -40,7 +39,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Productos"
-                android:textColor="#4C4B4B"
+                android:textColor="@color/black"
+                android:textStyle="bold"
                 android:background="@android:color/transparent"/>
         </LinearLayout>
 

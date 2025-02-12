@@ -7,52 +7,51 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gestionpedidosapp.R
-import com.example.gestionpedidosapp.adapters.OrderAdapter
-import com.example.gestionpedidosapp.domain.Order
+import com.example.gestionpedidosapp.adapters.ProductsAdapter
+import com.example.gestionpedidosapp.domain.Product
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class HomeAdminActivity : AppCompatActivity() {
+class ProductsActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
-    private lateinit var orderAdapter: OrderAdapter
-    private val listaSolicitudes = mutableListOf<Order>()
-
+    private lateinit var productAdapter: ProductsAdapter
+    private val listaSolicitudes = mutableListOf<Product>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home_admin) // Asegúrate de que el layout contiene el RecyclerView
+        setContentView(R.layout.activity_products)
 
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this) // Usa un LinearLayoutManager para la lista
 
         // Inicializar el adaptador con la lista y un manejador de clics
-        orderAdapter = OrderAdapter(listaSolicitudes) { solicitud ->
+        productAdapter = ProductsAdapter(listaSolicitudes) { product ->
             // Acción cuando se hace clic en un elemento
             // Aquí podrías abrir otra actividad o mostrar detalles
         }
-        recyclerView.adapter = orderAdapter
+        recyclerView.adapter = productAdapter
 
         // Cargar datos de prueba
-        cargarSolicitudes()
+        cargarProductos()
 
         val fabAdd: FloatingActionButton = findViewById(R.id.fab_add)
         fabAdd.setOnClickListener {
-            val intent = Intent(this, AddOrderActivity::class.java)
+            val intent = Intent(this, AddProductActivity::class.java)
             startActivity(intent)
         }
 
-        val buttonProducts: Button = findViewById(R.id.buttonProductos)
-        buttonProducts.setOnClickListener {
-            val intent = Intent(this, ProductsActivity::class.java)
+        val buttonPedidos: Button = findViewById(R.id.buttonPedidos)
+        buttonPedidos.setOnClickListener {
+            val intent = Intent(this, HomeAdminActivity::class.java)
             startActivity(intent)
         }
+
     }
 
-    private fun cargarSolicitudes() {
+    private fun cargarProductos() {
         val datosPrueba = listOf(
-            Order("05/10/2025", "05/10/2025", 2),
-            Order("10:00 AM", "05/10/2025", 1),
-            Order("12:00 PM", "05/10/2025", 3)
+            Product("Sagu", 0)
         )
 
-        orderAdapter.actualizarLista(datosPrueba)
+        productAdapter.actualizarLista(datosPrueba)
     }
+
 }
