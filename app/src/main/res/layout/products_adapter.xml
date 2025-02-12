@@ -9,36 +9,51 @@
     android:background="@color/white"
     app:cardElevation="6dp">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/products" />
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginStart="16dp"
-            android:layout_gravity="center_vertical"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:padding="16dp">
 
-            <TextView
-                android:id="@+id/nombre"
-                android:layout_width="wrap_content"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/products" />
+
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
-                android:layout_gravity="center_horizontal"
-                android:text=""
-                android:textColor="@color/black" />
+                android:layout_weight="1"
+                android:layout_marginStart="16dp"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/nombre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:layout_gravity="center_horizontal"
+                    android:text=""
+                    android:textColor="@color/black" />
+            </LinearLayout>
         </LinearLayout>
 
-    </LinearLayout>
+        <!-- Botón "X" en la esquina superior derecha -->
+        <ImageButton
+            android:id="@+id/btnDelete"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="8dp"
+            android:scaleType="centerCrop"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_delete"
+            android:contentDescription="Eliminar producto"/>
+    </RelativeLayout>
 </androidx.cardview.widget.CardView>

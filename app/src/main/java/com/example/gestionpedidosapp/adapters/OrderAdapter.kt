@@ -17,7 +17,7 @@ class OrderAdapter(
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val hora: TextView = view.findViewById(R.id.hora)
         val fecha: TextView = view.findViewById(R.id.fecha)
-        val cantProductos: TextView = view.findViewById(R.id.cant_productos)
+        val estado: TextView = view.findViewById(R.id.estado)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -31,7 +31,7 @@ class OrderAdapter(
         val order = orders[position]
         holder.hora.text = "Hora: " + order.hora
         holder.fecha.text = "Fecha: " + order.fecha
-        holder.cantProductos.text = "Cantidad: " + order.cantProductos
+        holder.estado.text = "Estado: " + order.estado
 
         holder.itemView.setOnClickListener { onItemClicked(order) }
     }

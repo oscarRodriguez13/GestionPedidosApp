@@ -1,11 +1,13 @@
 package com.example.gestionpedidosapp.adapters
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.content.Context
+import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gestionpedidosapp.R
 import com.example.gestionpedidosapp.domain.Product
@@ -49,7 +51,42 @@ class OrderProductsAdapter(
                 notifyItemChanged(position)  // Actualizar la vista
             }
         }
+
+        // Permitir edición manual al tocar el número
+        holder.cantidad.setOnClickListener {
+            showEditQuantityDialog(holder.itemView.context, product, holder, position)
+        }
     }
 
     override fun getItemCount() = products.size
+
+    private fun showEditQuantityDialog(context: Context, product: Product, holder: ViewHolder, position: Int) {
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("Editar cantidad")
+
+        // Crear un campo de entrada de número
+        val input = EditText(context)
+        input.inputType = InputType.TYPE_CLASS_NUMBER
+        input.setText(product.cantidad.toString())
+
+        builder.setView(input)
+
+        builder.setPositiveButton("OK") { _, _ ->
+            val newQuantity = input.text.toString().toIntOrNull()
+            if (newQuantity != null && newQuantity >= 0) {
+                product.cantidad = newQuantity
+                holder.cantidad.text = product.cantidad.toString()
+                onQuantityChanged(product)
+                notifyItemChanged(position)
+            } else {
+                Toast.makeText(context, "Cantidad inválida", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        builder.setNegativeButton("Cancelar") { dialog, _ ->
+            dialog.cancel()
+        }
+
+        builder.show()
+    }
 }

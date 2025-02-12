@@ -23,10 +23,16 @@ class ProductsActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this) // Usa un LinearLayoutManager para la lista
 
         // Inicializar el adaptador con la lista y un manejador de clics
-        productAdapter = ProductsAdapter(listaSolicitudes) { product ->
-            // Acción cuando se hace clic en un elemento
-            // Aquí podrías abrir otra actividad o mostrar detalles
-        }
+        productAdapter = ProductsAdapter(
+            listaSolicitudes,
+            onItemClicked = { product ->
+                // Acción cuando se hace clic en un producto (puedes abrir detalles, etc.)
+            },
+            onProductDeleted = { product ->
+                // Acción cuando se elimina un producto (por ejemplo, eliminarlo de la base de datos)
+            }
+        )
+
         recyclerView.adapter = productAdapter
 
         // Cargar datos de prueba

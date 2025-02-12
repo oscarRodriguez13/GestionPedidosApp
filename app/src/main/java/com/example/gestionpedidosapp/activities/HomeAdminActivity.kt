@@ -48,9 +48,9 @@ class HomeAdminActivity : AppCompatActivity() {
 
     private fun cargarSolicitudes() {
         val datosPrueba = listOf(
-            Order("05/10/2025", "05/10/2025", 2),
-            Order("10:00 AM", "05/10/2025", 1),
-            Order("12:00 PM", "05/10/2025", 3)
+            Order("05/10/2025", "12:00 PM", "Pendiente"),
+            Order("05/10/2025", "12:00 PM", "Completado"),
+            Order("05/10/2025", "12:00 PM", "Completado")
         )
 
         orderAdapter.actualizarLista(datosPrueba)
