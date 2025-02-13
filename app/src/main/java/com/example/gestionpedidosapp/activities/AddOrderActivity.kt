@@ -42,9 +42,6 @@ class AddOrderActivity : AppCompatActivity() {
     }
 
     private fun cargarProductos() {
-        productList.add(Product("Producto 1", 0))
-        productList.add(Product("Producto 2", 0))
-        productList.add(Product("Producto 3", 0))
     }
 
     private fun actualizarCantidad(producto: Product) {

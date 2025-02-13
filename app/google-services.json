@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "712584855223",
+    "project_id": "gestionapp-568bc",
+    "storage_bucket": "gestionapp-568bc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712584855223:android:5b758f3a3301d3ad7a9732",
+        "android_client_info": {
+          "package_name": "com.example.gestionpedidosapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuIJlxlsSUvezgRJbAg9pyv3vm4Dan6Ks"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
