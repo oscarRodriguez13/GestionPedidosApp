@@ -1,7 +1,8 @@
 package com.example.gestionpedidosapp.domain
 
-data class Order (
+data class Order(
     val fecha: String,
     val hora: String,
-    val estado: String
+    val estado: String,
+    val productos: List<Product>
 )
