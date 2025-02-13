@@ -9,8 +9,12 @@ import android.widget.Button
 import android.widget.Toast
 import com.example.gestionpedidosapp.R
 import com.example.gestionpedidosapp.adapters.OrderProductsAdapter
+import com.example.gestionpedidosapp.domain.Order
 import com.example.gestionpedidosapp.domain.Product
 import com.google.firebase.database.*
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class AddOrderActivity : AppCompatActivity() {
 
@@ -20,6 +24,7 @@ class AddOrderActivity : AppCompatActivity() {
     private val productList = mutableListOf<Product>()
 
     private lateinit var database: DatabaseReference  // Firebase Database
+    private lateinit var database2: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +35,7 @@ class AddOrderActivity : AppCompatActivity() {
 
         // Configuramos Firebase
         database = FirebaseDatabase.getInstance().getReference("productos")
+        database2 = FirebaseDatabase.getInstance().reference.child("pedidos")
 
         // Configuramos el RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -71,13 +77,32 @@ class AddOrderActivity : AppCompatActivity() {
     }
 
     private fun confirmarPedido() {
-        val resumenPedido = productList.filter { it.cantidad > 0 }
-            .joinToString("\n") { "${it.nombre}: ${it.cantidad}" }
+        val productosSeleccionados = productList.filter { it.cantidad > 0 }
 
-        if (resumenPedido.isNotEmpty()) {
-            Toast.makeText(this, "Pedido confirmado:\n$resumenPedido", Toast.LENGTH_LONG).show()
-            val intent = Intent(this, HomeAdminActivity::class.java)
-            startActivity(intent)
+        if (productosSeleccionados.isNotEmpty()) {
+            val fechaActual = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+            val horaActual = SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(Date())
+            val nuevoPedido = Order(
+                fecha = fechaActual,
+                hora = horaActual,
+                estado = "Pendiente",
+                productos = productosSeleccionados
+            )
+
+            val pedidoKey = database2.push().key
+            if (pedidoKey != null) {
+                database2.child(pedidoKey).setValue(nuevoPedido)
+                    .addOnSuccessListener {
+                        Toast.makeText(this, "Pedido confirmado correctamente", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this, HomeAdminActivity::class.java))
+                        finish()
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(this, "Error al confirmar el pedido", Toast.LENGTH_SHORT).show()
+                    }
+            } else {
+                Toast.makeText(this, "Error al generar la clave del pedido", Toast.LENGTH_SHORT).show()
+            }
         } else {
             Toast.makeText(this, "No has seleccionado productos", Toast.LENGTH_SHORT).show()
         }
