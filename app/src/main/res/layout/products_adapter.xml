@@ -23,7 +23,7 @@
                 android:id="@+id/profile_image"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/products" />
+                android:src="@drawable/img_3" />
 
             <LinearLayout
                 android:layout_width="0dp"

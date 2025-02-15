@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.gestionpedidosapp.R
 
 class PasswordEmployeeActivity : AppCompatActivity() {
-    private val defaultPassword = "admin123"
+    private val defaultPassword = "proveedor123"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

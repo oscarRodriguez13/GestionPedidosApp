@@ -73,6 +73,9 @@ class HomeAdminActivity : AppCompatActivity() {
                     val pedido = Order(fecha, hora, estado, productosList)
                     listaSolicitudes.add(pedido)
                 }
+
+                // Ordenar la lista de más reciente a más antiguo (por fecha y hora)
+                listaSolicitudes.sortWith(compareByDescending<Order> { it.fecha }.thenByDescending { it.hora })
                 orderAdapter.notifyDataSetChanged()
             }
 

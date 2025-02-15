@@ -14,7 +14,7 @@
         android:id="@+id/icon"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:src="@drawable/products" />
+        android:src="@drawable/img_4" />
 
     <TextView
         android:id="@+id/titulo_registro"

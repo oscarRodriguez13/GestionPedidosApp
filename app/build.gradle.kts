@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.gestionpedidosapp"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -37,8 +37,10 @@ android {
 }
 
 dependencies {
-    implementation("com.google.firebase:firebase-database-ktx:21.0.0")
-    implementation(platform("com.google.firebase:firebase-bom:33.9.0"))
+    implementation (libs.poi)
+    implementation (libs.poi.ooxml)
+    implementation(libs.firebase.database.ktx)
+    implementation(platform(libs.firebase.bom))
     implementation (libs.circleimageview)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

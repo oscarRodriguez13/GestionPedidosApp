@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.gestionpedidosapp.R
 
 class PasswordAdminActivity : AppCompatActivity() {
-    private val defaultPassword = "admin123"
+    private val defaultPassword = "comprador123"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +24,7 @@ class PasswordAdminActivity : AppCompatActivity() {
                 Toast.makeText(this, "Acceso concedido", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, HomeAdminActivity::class.java)
                 startActivity(intent)
+                etPassword.text.clear()
             } else {
                 Toast.makeText(this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show()
             }
