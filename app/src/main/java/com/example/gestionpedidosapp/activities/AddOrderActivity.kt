@@ -93,6 +93,12 @@ class AddOrderActivity : AppCompatActivity() {
             if (pedidoKey != null) {
                 database2.child(pedidoKey).setValue(nuevoPedido)
                     .addOnSuccessListener {
+                        // Reiniciar contadores de productos
+                        for (producto in productList) {
+                            producto.cantidad = 0
+                        }
+                        orderProductsAdapter.notifyDataSetChanged() // Refrescar UI
+
                         Toast.makeText(this, "Pedido confirmado correctamente", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this, HomeAdminActivity::class.java))
                         finish()
@@ -107,4 +113,5 @@ class AddOrderActivity : AppCompatActivity() {
             Toast.makeText(this, "No has seleccionado productos", Toast.LENGTH_SHORT).show()
         }
     }
+
 }

@@ -24,6 +24,7 @@ class PasswordEmployeeActivity : AppCompatActivity() {
                 Toast.makeText(this, "Acceso concedido", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, HomeEmployeeActivity::class.java)
                 startActivity(intent)
+                etPassword.text.clear()
             } else {
                 Toast.makeText(this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show()
             }
